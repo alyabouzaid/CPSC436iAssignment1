@@ -1,0 +1,13 @@
+workshops = [
+	{
+		"date": "05/18/2020",
+		"speaker":"Abouzaid Aly",
+		"description": "heeey"
+	},
+	{
+		"date": "05/18/2020",
+		"speaker":"Aly Abouzaid",
+		"description": "Hello"
+
+	}
+	];
