@@ -1,6 +1,13 @@
 import React from 'react';
 import TopBar from './TopBar';
 import MessageBox from './MessageBox';
+
+//API Service
+
+
+
+
+
 const App = () => {   //this is how you make a functional component
 	return (
 		<div>
@@ -9,5 +16,6 @@ const App = () => {   //this is how you make a functional component
 </div>
 );
 }
+
 
 export default App;

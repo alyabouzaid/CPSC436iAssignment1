@@ -19,6 +19,7 @@ class MessageBox extends React.Component {
         let text =  document.getElementById("fname").value
 
         this.props.addingMessage({
+            "__id":this.props.messages.length,
             "key": this.props.messages.length,
             "date": today,
             "speaker":"you",
