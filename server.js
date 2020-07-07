@@ -61,17 +61,12 @@ messagessss = [
 Streams.insertMany(messagessss,function(error, docs) {})
 
 // newMessage.save();
-
-
-
 //    messages = {	
 //             "key": 0,
 //             "date": "05/18/2020",
 //             "speaker":"Abouzaid Aly",
 //             "description": "heeey"
 //         };
-
-
 
 // const newMessage = new Streams(messages);
 

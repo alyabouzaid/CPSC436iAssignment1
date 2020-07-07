@@ -1,6 +1,9 @@
 
 import { combineReducers } from 'redux';
 import {Streams} from '../components/App';
+import axios from 'axios'
+
+
 
 const counterReducer = (count = 0, action) => {
 	if (action.type === 'INCREMENT_COUNTER') {
@@ -40,36 +43,42 @@ const counterReducer = (count = 0, action) => {
 //   });
 
 
+    // const fetchUserEmail = async () => {
+    //   const response = await fetch('/');
+	//   const { email } = await response.text();
+	//   console.log(111111111111111111)
+	//   console.log(response)
 
-const counterMessagesReducer = (messages = [
-	{	"__id":0,
-		"key": 0,
-		"date": "05/18/2020",
-		"speaker":"Abouzaid Aly",
-		"description": "heeey"
-	},
-	{	
-		"__id":0,
-		"key":1,
-		"date": "05/20/2020",
-		"speaker":"Aly Abouzaid",
-		"description": "Hello"
+    //   this.setState({
+    //     email
+	//   });
+    // };
+  
 
-	}
-	], action) => {
+
+
+const counterMessagesReducer = (messages = [] , action) => {
 	if (action.type === 'INCREMENT_MESSAGE') {
-
+		axios({url:'/post',method:'POST',data:action.addingMessage}).then(res => console.log(res)).catch(err => console.log(err))
 		return [...messages, action.addingMessage];
 
 	}
 
 	if (action.type === 'CLEAR_MESSAGES') {
+		axios({url:'/messages',method:'DELETE',data:[]}).then(res => console.log(res)).catch(err => console.log(err))
 
 		return [];
 
 	}
 	console.log(messages);
+	
+	if (action.type === 'INITIALIZE_MESSAGES') {
 
+		// console.log(action.payload)
+		// console.log(22222222222222222222222)
+		return action.payload;
+
+	}
 	return messages;
 };
 
@@ -83,3 +92,17 @@ export default combineReducers({
 
 
 
+// [
+// 	{	"key": 0,
+// 		"date": "05/18/2020",
+// 		"speaker":"Abouzaid Aly",
+// 		"description": "heeey"
+// 	},
+// 	{	
+// 		"key":1,
+// 		"date": "05/20/2020",
+// 		"speaker":"Aly Abouzaid",
+// 		"description": "Hello"
+
+// 	}
+// 	]

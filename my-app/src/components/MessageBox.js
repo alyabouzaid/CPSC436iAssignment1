@@ -2,10 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addingMessage } from '../actions';
 import { removeMessages } from '../actions';
+import { initialData } from '../actions';
 
 class MessageBox extends React.Component {
 
 
+    componentDidMount(){
+        this.props.initialData()}
 
 
      addMessage() {
@@ -19,19 +22,16 @@ class MessageBox extends React.Component {
         let text =  document.getElementById("fname").value
 
         this.props.addingMessage({
-            "__id":this.props.messages.length,
             "key": this.props.messages.length,
             "date": today,
             "speaker":"you",
             "description": text
         })
-
     }
 
     detailsMessage(i) {
         
         {console.log(i)}
-
         var workshops_content = document.getElementById("itemclickedbox");
         workshops_content.value = i
         console.log(workshops_content)
@@ -41,6 +41,11 @@ class MessageBox extends React.Component {
 
 
 	render() {
+
+
+
+
+
 		return (				
         
 
@@ -57,7 +62,14 @@ class MessageBox extends React.Component {
 				<button onClick={() => { this.addMessage()}}>send message</button>
 			</p>
 
+
+
+
             <ul>
+                
+                
+
+ 
                     {(this.props.messages).map(item => ( 
                     <div>
 
@@ -70,6 +82,8 @@ class MessageBox extends React.Component {
 
                     </div>
                     ))}
+                {/* } */}
+
             </ul>
 
             <input  id="itemclickedbox" value="No item clicked yet" size="100"/>
@@ -89,4 +103,4 @@ const mapStateToProps = (state) => { //name is by convention
 }
     
 
-export default connect(mapStateToProps, { addingMessage,removeMessages })(MessageBox);
+export default connect(mapStateToProps, { addingMessage,removeMessages,initialData })(MessageBox);
