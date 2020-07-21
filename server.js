@@ -47,15 +47,15 @@ mongoose.connection.on('connected', () => {
 
 // app.use(cors());
 
-
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname+'/my-app/build/index.html'));
-// });
-
-
-
 app.use('/users', usersRouter);
-app.set('port', PORT);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/my-app/build/index.html'));
+});
+
+
+
+// app.set('port', PORT);
 app.listen(PORT);
 
 // var Schema = mongoose.Schema;
