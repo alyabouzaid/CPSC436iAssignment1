@@ -1,5 +1,5 @@
 {
-  "name": "CPSC436iAssignment1",
+  "name": "assingn",
   "version": "1.0.0",
   "description": "",
   "main": "js.js",
@@ -9,8 +9,8 @@
     "install-client":"cd my-app && npm install",
     "heroku-postbuild":"npm run install-client && npm run build",
     "client": "cd my-app && npm start",
-    "backend": "cd my-app && cd api && nodemon bin/www",
-    "dev": "concurrently \"npm run backend\" \"npm run client\"  "
+    "start": "cd my-app && cd api && nodemon bin/www",
+    "dev": "concurrently \"npm run start\" \"npm run client\"  "
   },
   "repository": {
     "type": "git",

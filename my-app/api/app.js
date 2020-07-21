@@ -12,10 +12,10 @@ var cors = require('cors');
 
 var app = express();
 
-
-mongoose.connect('mongodb://localhost/ReactReduxExpressMongo')
+// process.env.MONGODB_URI ||
+mongoose.connect( 'mongodb://localhost/ReactReduxExpressMongo', { useNewUrlParser: true })
 .then(() =>  console.log('connection succesfulllllll'))
-.catch((err) => console.error(err));
+.catch((err) => console.log("aaaaaa"));
 
 
 // view engine setup
@@ -48,5 +48,13 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+if(process.env.NODE_ENV === 'production'){
+
+    app.use(express.static('my-app/build'))
+
+}
+
 
 module.exports = app;
