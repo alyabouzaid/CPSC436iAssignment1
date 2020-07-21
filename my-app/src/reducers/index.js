@@ -59,13 +59,14 @@ const counterReducer = (count = 0, action) => {
 
 const counterMessagesReducer = (messages = [] , action) => {
 	if (action.type === 'INCREMENT_MESSAGE') {
-		axios({url:'/post',method:'POST',data:action.addingMessage}).then(res => console.log(res)).catch(err => console.log(err))
+		console.log(action.addingMessage)
+		axios({url:'users/post',method:'POST',data:action.addingMessage}).then(res => console.log(res)).catch(err => console.log(err))
 		return [...messages, action.addingMessage];
 
 	}
 
 	if (action.type === 'CLEAR_MESSAGES') {
-		axios({url:'/messages',method:'DELETE',data:[]}).then(res => console.log(res)).catch(err => console.log(err))
+		axios({url:'users/messages',method:'DELETE',data:[]}).then(res => console.log(res)).catch(err => console.log(err))
 
 		return [];
 

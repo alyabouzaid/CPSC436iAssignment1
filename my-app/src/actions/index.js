@@ -20,7 +20,7 @@ export const removeMessages = amount => {
 export const initialData = () => {
 	return  (dispatch) => {
 
-    axios.get('http://localhost:9000/')
+    axios.get('http://localhost:9000/users')
     .then(
 		(res) => {
 			dispatch(initialMessages(res.data))
