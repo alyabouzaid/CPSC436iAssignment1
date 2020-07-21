@@ -106,6 +106,7 @@ router.delete('/messages', function(req,res,next){
     console.log('collection dropped');
 });
 
+  let stream = new Streams(req.body)
 
   res.setHeader('Content-Type','application/json')
   res.send(stream);
