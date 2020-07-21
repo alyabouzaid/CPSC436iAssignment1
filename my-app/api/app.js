@@ -13,7 +13,7 @@ var cors = require('cors');
 var app = express();
 
 // process.env.MONGODB_URI ||
-mongoose.connect( 'mongodb://localhost/ReactReduxExpressMongo', { useNewUrlParser: true })
+mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/ReactReduxExpressMongo', { useNewUrlParser: true })
 .then(() =>  console.log('connection succesfulllllll'))
 .catch((err) => console.log("aaaaaa"));
 
