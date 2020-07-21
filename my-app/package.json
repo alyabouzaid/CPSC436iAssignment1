@@ -45,5 +45,5 @@
   "devDependencies": {
     "nodemon": "^2.0.4"
   },
-  "proxy": "http://localhost:9000/"
+  "proxy": "https://alyabouzaid.herokuapp.com"
 }
