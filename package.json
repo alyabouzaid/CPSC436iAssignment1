@@ -4,10 +4,7 @@
   "description": "",
   "main": "js.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd my-app && npm run build",
-    "install-client": "cd my-app && npm install && npm run buid",
-    "heroku-postbuild": "cd my-app && npm install && npm run buid",
+    "heroku-postbuild": "cd my-app && npm install && npm run build",
     "client": "cd my-app && npm start",
     "kin": "cd my-app && cd api && node bin/www",
     "start": "node server.js",
