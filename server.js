@@ -16,7 +16,7 @@ var cors = require('cors');
 const app = express();
 
 
-app.use('/static',express.static(path.join(__dirname + '/my-app/build')));
+app.use(express.static(path.join(__dirname + '/my-app/build')));
 
 
 
@@ -49,9 +49,9 @@ mongoose.connection.on('connected', () => {
 
 app.use('/users', usersRouter);
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/my-app/build/index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname+'/my-app/build/index.html'));
+// });
 
 
 
