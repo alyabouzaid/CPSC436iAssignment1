@@ -18,18 +18,16 @@ export const removeMessages = amount => {
 
 
 export const initialData = () => {
-	return  (dispatch) => {
-
-    axios.get('http://localhost:9000/users')
-    .then(
-		(res) => {
-			dispatch(initialMessages(res.data))
-	}
+	return  (dispatch) => {axios.get('/users')
+    .then((res) => {
+			dispatch(initialMessages(res.data));
+			}
     )
 
-	.catch(err => err)
-	}
+	.catch(err => {console.log(err)}) ;
+	
 }
+};
 
 export const initialMessages = (recommendation) => {
 	return {

@@ -9,9 +9,9 @@ var router = express.Router();
 
 const mongoose= require('mongoose');
 
-mongoose.connect('mongodb://localhost/ReactReduxExpressMongo')
-.then(() =>  console.log('connection succesful2222'))
-.catch((err) => console.error(err));
+// mongoose.connect( process.env.MONGODB_URI || 'mongodb+srv://m001-student:ali12345@cluster0-xfebn.mongodb.net/messages?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+// .then(() =>  console.log('connection succesful2222zz'))
+// .catch((err) => console.error(err));
 
 
 // let users = mongoose.connection.collections['messages'].find({})
@@ -45,6 +45,9 @@ var Streams = mongoose.model('messages', streamSchema);
 
 
 router.get('/', function(req, res, next) {
+
+  
+  console.log('users')
   let users = Streams.find({}).then(
     
     (data) => {

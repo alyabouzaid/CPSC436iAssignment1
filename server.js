@@ -14,11 +14,10 @@ const path = require('path');
 var cors = require('cors');
 
 const app = express();
-// app.use(express.json);
-// app.use(express.urlencoded({ entended: false}));
-// Serve static files from the React app
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
+
+
+app.use('/static',express.static(path.join(__dirname + '/my-app/build')));
+
 
 
 app.use(cors());
@@ -38,7 +37,9 @@ mongoose.connect( process.env.MONGODB_URI || 'mongodb+srv://m001-student:ali1234
 .then(() =>  console.log('connection succesfull okay'))
 .catch((err) => console.log("aaaaaa"));
 
-
+mongoose.connection.on('connected', () => {
+    console.log('connected to the server');
+})
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
@@ -47,12 +48,10 @@ mongoose.connect( process.env.MONGODB_URI || 'mongodb+srv://m001-student:ali1234
 // app.use(cors());
 
 
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname+'/my-app/build/index.html'));
+// });
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/my-app/build/index.html'));
-});
-
-app.use(express.static(path.join(__dirname + '/my-app/build')));
 
 
 app.use('/users', usersRouter);
