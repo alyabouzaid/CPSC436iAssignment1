@@ -14,7 +14,7 @@ var app = express();
 
 // process.env.MONGODB_URI ||
 mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/ReactReduxExpressMongo', { useNewUrlParser: true })
-.then(() =>  console.log('connection succesfulllllll'))
+.then(() =>  console.log('connection succesfull okay'))
 .catch((err) => console.log("aaaaaa"));
 
 
