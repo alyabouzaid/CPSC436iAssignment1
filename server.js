@@ -53,10 +53,14 @@ app.use('/users', usersRouter);
 //     res.sendFile(path.join(__dirname+'/my-app/build/index.html'));
 // });
 
+if(process.env.NODE_ENV === 'production'){
 
+    app.use(express.static('my-app/build'))
+
+}
 
 // app.set('port', PORT);
-app.listen(PORT);
+app.listen(PORT,console.log(PORT));
 
 // var Schema = mongoose.Schema;
 // var streamSchema = new Schema({
